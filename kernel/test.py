@@ -1,4 +1,5 @@
 import os
+import json
 
 SUBMIT_DIR = '/mnt/cgsubmit'
 TESTDATA_DIR = '/mnt/cgtestdata'
@@ -12,9 +13,10 @@ def get_score(path: str):
         return 0
 
 def main():
-    score_file = os.path.join(SUBMIT_DIR, "score")
+    score_file = os.path.join(SUBMIT_DIR, os.listdir(SUBMIT_DIR)[0])
     user_score = get_score(score_file)
-    print(f'{{"score": {user_score}}}')
+    result = {'verdict': 'AC', 'score': user_score}
+    print(json.dumps(result))
 
 if __name__ == '__main__':
     main()
