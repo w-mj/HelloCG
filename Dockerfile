@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM jupyter/base-notebook
 MAINTAINER WMJ "wmj@alphamj.cn"
 COPY kernel/ /
-CMD bash test.sh
+CMD python /test.py

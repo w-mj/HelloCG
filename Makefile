@@ -12,5 +12,5 @@ build:
 run: build
 	docker run --rm --volume $(CURDIR)/submit:$(SUBMIT_DIR) $(KERNEL_NAME)
 
-img:
+img: build
 	docker save $(KERNEL_NAME) | gzip -c > $(KERNEL_NAME).tar.gz
